@@ -11,12 +11,14 @@ _/  |_|__| _____   ___________  ______
 // setInterval: meerdere keren afgaan
 
 // 1 — start a timer and show a ⏰ in #clock after 10 seconds
+
 setTimeout(() => {
   console.log('⏰');
 }, 10000)
 
 // 2 — click the start button to show a ticking clock in #timer that goes up every second
 // clicking stop should clear and stop the timer and reset the clock to 0
+
 let seconds = 0; 
 let intervalId = null;
 

@@ -5,109 +5,108 @@
 (__)  \____/\_)__)(____/\_/\_/\_)(_/(____)\_)__) (__)\_/\_/\____/(____/
  */
 
-// TODO: 1. link this script file to your page and open your developer console
+// 1 - link this script file to your page and open your developer console
+// 2- create a variable that keeps track of your name (can be let, const or var)
 
-// TODO: 2. create a variable that keeps track of your name (can be let, const or var)
+let name = 'Chesry';
 
-// let name = 'Chesry';
+// 3 - create a variable that asks for your birthyear (use prompt() for that)
+// hint: prompt() returns a string, so you'll need to convert it to a number with parseInt()
 
-// TODO: 3. create a variable that asks for your birthyear (use prompt() for that)
-// ? hint: prompt() returns a string, so you'll need to convert it to a number with parseInt()
+let birthyear = parseInt(prompt("What is your birthyear?", "2030"));
+console.log(birthyear);
 
-// let birthyear = parseInt(prompt("What is your birthyear?", "2030"));
-// console.log(birthyear);
+// 4 - calculate your age (this will require grabbing the current year somehow) 
+// you can get the current year with new Date().getFullYear()
 
-// TODO: 4. calculate your age (this will require grabbing the current year somehow) 
-// ? hint: you can get the current year with new Date().getFullYear()
+let currentDate = new Date().getFullYear();
+let age = currentDate - birthyear;
 
-// let currentDate = new Date().getFullYear();
-// let age = currentDate - birthyear;
+// log your age to the console
 
-// TODO: 5. log your age to the console
+console.log(`You are or are turning ${age} years old.`);
 
-// console.log(`You are or are turning ${age} years old.`);
+// 5 - write a function named greet() that wishes you a nice day like `Hi there, [your name]! Have a nice day!`
+// hint: you can use string interpolation with backticks to insert your name into the string
+// hint: the function should take [your name] as an argument
+// use the function to print the message to the console
 
-// TODO: write a function named greet() that wishes you a nice day like `Hi there, [your name]! Have a nice day!`
-// ? hint: you can use string interpolation with backticks to insert your name into the string
-// ? hint: the function should take [your name] as an argument
-// ? use the function to print the message to the console
+const greet = function() {
+    console.log(`Hi there, ${name}! Have a nice day!`);
+}
+greet();
 
-// const greet = function() {
-//     console.log(`Hi there, ${name}! Have a nice day!`);
-// }
-// greet();
+// 6 - write a function named calculateAge() that calculates your age and logs it to the console 
+// use the function to print your age to the console
+// hint: the function should take your birthyear as an argument
 
-// TODO: 7. write a function named calculateAge() that calculates your age and logs it to the console 
-// TODO: use the function to print your age to the console
-// ? hint: the function should take your birthyear as an argument
+const calculateAge = function(birthyear) {
+    let currentDate = new Date().getFullYear();
+    let age = currentDate - birthyear;
+    console.log(`You are or are turning ${age} years old.`);
+}
 
-// const calculateAge = function(birthyear) {
-//     let currentDate = new Date().getFullYear();
-//     let age = currentDate - birthyear;
-//     console.log(`You are or are turning ${age} years old.`);
-// }
+let userBirthyear = parseInt(prompt("What is your birthyear?", "2030"));
+let userAge = calculateAge(userBirthyear);
 
-// let userBirthyear = parseInt(prompt("What is your birthyear?", "2030"));
-// let userAge = calculateAge(userBirthyear);
+// 7. use prompt() to ask if you how you are feeling today ("good", "bad", "ok")
+// store the result in a variable
+// print an emoji to the console based on the result (😊, 😞, 😐)
+// kudos to you if you use a switch statement for this
 
-// TODO: 8. use prompt() to ask if you how you are feeling today ("good", "bad", "ok")
-// TODO: store the result in a variable
-// TODO: print an emoji to the console based on the result (😊, 😞, 😐)
-// TODO: kudos to you if you use a switch statement for this
+const mood = function() {
+    let userMood = prompt("How are you feeling today? (good, bad, ok)", "good");
+    let mood = userMood.toLowerCase();
 
-// const mood = function() {
-//     let userMood = prompt("How are you feeling today? (good, bad, ok)", "good");
-//     let mood = userMood.toLowerCase();
+    switch (mood) {
+        case "good":
+            console.log("😊");
+            break;
+        case "bad":
+            console.log("😞");
+            break;
+        case "ok":
+            console.log("😐");
+            break;
+        default:
+            console.log("Unvalid answer given.");
+            break;
+    }
+}
+mood();
 
-//     switch (mood) {
-//         case "good":
-//             console.log("😊");
-//             break;
-//         case "bad":
-//             console.log("😞");
-//             break;
-//         case "ok":
-//             console.log("😐");
-//             break;
-//         default:
-//             console.log("Unvalid answer given.");
-//             break;
-//     }
-// }
-// mood();
+// 8 - create an array `foods` with three of your favorite foods
+// loop through the array and log each food to the console (use a for loop)
+// you can get the length of an array with `array.length`
 
-// TODO: 9. create an array `foods` with three of your favorite foods
-// TODO: loop through the array and log each food to the console (use a for loop)
-// ? hint: you can get the length of an array with `array.length`
+let arrFoodsV1 = ['kebab', 'pizza', 'burger'];
 
-// let arrFoods = ['kebab', 'pizza', 'burger'];
+for (let food = 0; food < arrFoodsV1.length; food ++) {
+    console.log(arrFoodsV1[food]);
+}
 
-// for (let food = 0; food < arrFoods.length; food ++) {
-//     console.log(arrFoods[food]);
-// }
+for (let food of arrFoodsV1) {
+    console.log(food);
+}
 
-// for (let food of arrFoods) {
-//     console.log(food);
-// }
+// 9. create an object `person` with properties `name`, `age` and `favoriteFoods`
+// use the array `foods` as the value for the `favoriteFoods` property
+// log the object to the console
 
-// TODO: 10. create an object `person` with properties `name`, `age` and `favoriteFoods`
-// TODO: use the array `foods` as the value for the `favoriteFoods` property
-// TODO: log the object to the console
+let arrFoodsV2 = ['kebab', 'pizza', 'burger'];
+let person = {
+    name: 'Chesry',
+    age: 20,
+    favoriteFoods: arrFoodsV2
+}
 
-// let arrFoods = ['kebab', 'pizza', 'burger'];
-// let person = {
-//     name: 'Chesry',
-//     age: 20,
-//     favoriteFoods: arrFoods
-// }
+function showInformation() {
+    console.log(`My name is ${person.name}, I am ${person.age} years old and one of 
+    my favorite foods are ${person.favoriteFoods[1]}`);
 
-// function showInformation() {
-//     console.log(`My name is ${person.name}, I am ${person.age} years old and one of 
-//     my favorite foods are ${person.favoriteFoods[1]}`);
-
-//     person.favoriteFoods.forEach((food) => {
-//         console.log(food);
-//     });
+    person.favoriteFoods.forEach((food) => {
+        console.log(food);
+    });
     
-// }
-// showInformation();
+}
+showInformation();

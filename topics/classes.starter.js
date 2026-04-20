@@ -7,20 +7,20 @@ __    __  ____
 */
 
 class Student {
-    constructor(name) {
+    constructor(name, firstname) {
         // error 1
         this.name = name;
         this.firstname = firstname;
     }
 
     getFullName() {
-        return "${this.firstname} ${this.name}"; // error 2
+        return `${this.firstname} ${this.name}`; // error 2
     }
 
     printStudentCard() {
         const card = document.createElement("div");
-        card.innerHTML = "${student.firstname} ${student.name}"; // error 3
-        document.querySelect().appendChild(card); // error 4
+        card.innerHTML = `${student.firstname} ${student.name}`; // error 3
+        document.querySelector("#studentCard").appendChild(card); // error 4
     }
 }
 
@@ -30,4 +30,7 @@ class Student {
 //   - call printStudentCard method to print the card on your screen inside #studentCard container
 
 const student = new Student("John", "Smith");
+console.log(student.getFullName());
+student.printStudentCard();
+
 // continue below

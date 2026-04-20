@@ -13,8 +13,21 @@
 //  Use the following documentation for your fetch request: https://collectionapi.metmuseum.org/public/collection/v1/search
 //  Use the /public/collection/v1/search endpoint to fetch some Object IDs
 //  Hint: ask for results that `hasImages`
-const url =
-    "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=sunflowers";
+
+const url = "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=sunflowers";
+async function get() {
+    let response = await fetch(url);
+    let json = await response.json();
+    
+    let id = json.objectIDs[Math.floor(Math.random() * json.objectIDs.length)];
+    let detailResponse = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);
+    let detail = await detailResponse.json();
+    document.querySelector("#painting").src = detail.primaryImageSmall;
+}
+
+document.querySelector("#btnSearch").addEventListener("click", (e) => {
+    get();
+})
 
 //  2 - use one of the Object IDs you found above to find details about your favourite painting
 //  Hint: https://metmuseum.github.io/?ref=dr-pa&utm_medium=public-apis-website#object
